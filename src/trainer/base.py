@@ -18,7 +18,8 @@ from transformers.integrations import (  # isort: split
 )
 from transformers import PretrainedConfig
 from transformers.data.data_collator import DataCollator, DataCollatorWithPadding, default_data_collator
-from transformers.deepspeed import deepspeed_init, is_deepspeed_zero3_enabled
+#dcardenasp: from transformers.deepspeed import deepspeed_init, is_deepspeed_zero3_enabled
+from transformers.integrations.deepspeed import deepspeed_init, is_deepspeed_zero3_enabled
 from transformers.models.auto.modeling_auto import MODEL_FOR_CAUSAL_LM_MAPPING_NAMES, MODEL_MAPPING_NAMES
 from transformers.tokenization_utils_base import PreTrainedTokenizerBase
 from transformers.trainer_callback import (
@@ -35,7 +36,8 @@ from transformers.utils import (
     is_sagemaker_mp_enabled,
     is_torch_tensorrt_fx_available,
     is_datasets_available,
-    is_torch_tpu_available,
+    #dcardenasp: is_torch_tpu_available,
+    is_torch_npu_available,
     is_torchdynamo_available,
     logging,
 )
