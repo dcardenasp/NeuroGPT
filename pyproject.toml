@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=61", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "neurogpt-eeg"
+version = "0.1.0"
+description = "Code for the paper 'Neuro-GPT: Towards a Foundation Model for EEG'"
+authors = [
+    { name = "Wenhui Cui" },
+    { name = "David Cárdenas Peña" }
+]
+readme = "README.md"
+requires-python = ">=3.8"
+
+# I’m intentionally not duplicating requirements.txt here.
+# After installing the package you can still run:
+#   pip install -r requirements.txt
+dependencies = []
+
+[project.urls]
+"Homepage" = "https://github.com/dcardenasp/NeuroGPT"
+"Paper" = "https://arxiv.org/abs/2311.03764"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*"]
