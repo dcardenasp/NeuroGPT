@@ -1,27 +1,30 @@
 [build-system]
-requires = ["setuptools>=61", "wheel"]
+requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 [project]
 name = "neurogpt-eeg"
-version = "0.1.0"
+version = "0.1.1"
 description = "Code for the paper 'Neuro-GPT: Towards a Foundation Model for EEG'"
+readme = "README.md"
+requires-python = ">=3.8"
 authors = [
     { name = "Wenhui Cui" },
     { name = "David Cárdenas Peña" }
 ]
-readme = "README.md"
-requires-python = ">=3.8"
-
-# I’m intentionally not duplicating requirements.txt here.
-# After installing the package you can still run:
-#   pip install -r requirements.txt
-dependencies = []
+dependencies = []  # You can mirror requirements.txt here later if you want
 
 [project.urls]
 "Homepage" = "https://github.com/dcardenasp/NeuroGPT"
-"Paper" = "https://arxiv.org/abs/2311.03764"
+
+[tool.setuptools]
+# Use src/ as the root for all importable code
+package-dir = {"" = "src"}
+
+# Single-file modules living directly under src/
+# i.e. src/train_gpt.py, src/model.py, src/utils.py
+py-modules = ["train_gpt", "model", "utils"]
 
 [tool.setuptools.packages.find]
-where = ["."]
-include = ["src*"]
+# This will find packages like batcher, encoder, decoder, trainer, embedder, ...
+where = ["src"]
